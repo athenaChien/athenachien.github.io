@@ -1,3 +1,5 @@
+
+
 <div class="card-columns m-3 mt-5">
 
   <!-- Remote Projects (unchanged) -->
@@ -27,7 +29,8 @@
   {% endfor %}
 
   <!-- Local Projects: now sorted by weight and with extra fields -->
-  {% assign local_projects = site.projects | sort: "weight" %}
+ {% assign local_projects = include.collection | default: site.projects | sort: "weight" %}
+
   {% for project in local_projects %}
 
     {%- assign project_type  = "local" -%}
