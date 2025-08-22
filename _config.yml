@@ -52,8 +52,10 @@ permalink: /blog/:title
 ### Collections ###
 collections:
   projects:
-    output: true
-    permalink: /projects/:name
+    output: false
+  leadership:
+    output: false
+
 
 
 ### Disqus ###
@@ -77,19 +79,7 @@ buymeacoffee:
   message: "Thank you for visiting."                    # Message to be displayed aside from the button for a few seconds.
   description: "Support me on Buy me a coffee!"
 
-
-### Defaults for collections ###
-defaults:
-  - scope:
-      path: ""
-      type: "projects"
-    values:
-      layout: "page"
-  - scope:
-      path: ""
-      type: "posts"
-    values:
-      comments: false                                   # Set to true to enable disqus comments
+                                 # Set to true to enable disqus comments
 
 
 ### Exclude from processing ###

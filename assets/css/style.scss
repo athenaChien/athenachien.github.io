@@ -60,3 +60,34 @@
 }
 [data-theme="dark"] .badge-skill--research { background-color: #1f2a38; border-color: #304357; }
 [data-theme="dark"] .badge-skill--tech     { background-color: #24301f; border-color: #34462d; }
+
+/* ----- Project/Leadership cards: no hover motion, no whole-card link look ----- */
+
+/* Remove theme hover effects / motion */
+.project.card { 
+  transition: none !important; 
+  cursor: default;                  /* no “clickable” cursor */
+}
+.project.card:hover { 
+  transform: none !important; 
+  box-shadow: none !important;      /* prevent lift on hover */
+}
+
+/* If any WOW/animate.css classes sneak in, neutralize them */
+.wow, .animated { 
+  animation: none !important; 
+  visibility: visible !important; 
+}
+
+/* Title is the only link; keep it subtle */
+.project .card-title a { 
+  text-decoration: none; 
+}
+.project .card-title a:hover { 
+  text-decoration: underline; 
+}
+
+/* Optional: ensure badges don’t look like links */
+.project .badge { 
+  pointer-events: none; 
+}

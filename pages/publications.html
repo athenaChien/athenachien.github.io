@@ -1,0 +1,55 @@
+---
+layout: default
+title: Publications
+permalink: /publications/
+weight: 2
+---
+
+<div class="container my-5 publications-page">
+
+  {% assign pubs = site.data.publications | sort: "year" | reverse %}
+  {% for item in pubs %}
+    <article class="work-item p-3 mb-4 border rounded">
+      <div class="row g-3 align-items-start">
+        <div class="col-12 col-md-3">
+          {% if item.image %}
+            <div class="work-thumb is-43">
+              <img src="{{ item.image | relative_url }}" alt="{{ item.title }}">
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="col-12 col-md-9">
+          <h3 class="mb-1">
+            {% if item.link %}<a href="{{ item.link }}">{% endif %}
+              {{ item.title }}
+            {% if item.link %}</a>{% endif %}
+          </h3>
+
+          <p class="mb-1 text-muted">
+            {% if item.authors %}{{ item.authors }}{% endif %}
+            {% if item.venue %} • {{ item.venue }}{% endif %}
+            {% if item.year %} • {{ item.year }}{% endif %}
+          </p>
+
+          {% if item.description %}<p>{{ item.description }}</p>{% endif %}
+
+          <div class="small">
+            {% if item.pdf %}
+              <a class="me-3" href="{{ item.pdf | relative_url }}">PDF</a>
+            {% endif %}
+            {% if item.link %}
+              <a class="me-3" href="{{ item.link }}">View publication</a>
+            {% endif %}
+            {% if item.tags %}
+              <span class="text-muted">
+                {% for t in item.tags %}<span class="me-2">#{{ t }}</span>{% endfor %}
+              </span>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </article>
+  {% endfor %}
+
+</div>
