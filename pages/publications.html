@@ -5,51 +5,142 @@ permalink: /publications/
 weight: 2
 ---
 
-<div class="container my-5 publications-page">
+<div class="container my-5 work-page publications-page">
+  {%- assign data = site.data.publications -%}
 
-  {% assign pubs = site.data.publications | sort: "year" | reverse %}
-  {% for item in pubs %}
+  {%- comment -%}
+    Build PAPERS bucket
+  {%- endcomment -%}
+  {%- if data.papers -%}
+    {%- assign papers = data.papers -%}
+  {%- else -%}
+    {%- assign papers = data | where: "type", "paper" -%}
+    {%- assign tmp = data | where: "section", "publication" -%}
+    {%- assign papers = papers | concat: tmp -%}
+    {%- assign tmp = data | where: "section", "paper" -%}
+    {%- assign papers = papers | concat: tmp -%}
+    {%- assign tmp = data | where: "category", "publication" -%}
+    {%- assign papers = papers | concat: tmp -%}
+  {%- endif -%}
+
+  {%- comment -%}
+    Build POSTERS/PRESENTATIONS bucket
+  {%- endcomment -%}
+  {%- if data.posters -%}
+    {%- assign posters = data.posters -%}
+  {%- elsif data.presentations -%}
+    {%- assign posters = data.presentations -%}
+  {%- else -%}
+    {%- assign posters = data | where: "type", "poster" -%}
+    {%- assign tmp = data | where: "type", "presentation" -%}
+    {%- assign posters = posters | concat: tmp -%}
+    {%- assign tmp = data | where: "section", "poster" -%}
+    {%- assign posters = posters | concat: tmp -%}
+    {%- assign tmp = data | where: "section", "presentation" -%}
+    {%- assign posters = posters | concat: tmp -%}
+    {%- assign tmp = data | where: "category", "poster" -%}
+    {%- assign posters = posters | concat: tmp -%}
+    {%- assign tmp = data | where: "category", "presentation" -%}
+    {%- assign posters = posters | concat: tmp -%}
+  {%- endif -%}
+
+  {%- if papers and papers.size > 0 -%}
+  <section class="mb-5">
+    <h2 class="mb-3">Publications</h2>
+
+    {%- for item in papers -%}
     <article class="work-item p-3 mb-4 border rounded">
       <div class="row g-3 align-items-start">
+        <!-- Optional image -->
         <div class="col-12 col-md-3">
-          {% if item.image %}
-            <div class="work-thumb is-43">
-              <img src="{{ item.image | relative_url }}" alt="{{ item.title }}">
-            </div>
-          {% endif %}
+          {%- if item.image -%}
+          <div class="work-thumb is-43">
+            <img src="{{ item.image | relative_url }}" alt="{{ item.title | default: 'Publication image' }}">
+          </div>
+          {%- endif -%}
         </div>
 
         <div class="col-12 col-md-9">
-          <h3 class="mb-1">
-            {% if item.link %}<a href="{{ item.link }}">{% endif %}
+          <h3 class="mb-1 h6">
+            {%- if item.link -%}<a href="{{ item.link }}">{%- endif -%}
               {{ item.title }}
-            {% if item.link %}</a>{% endif %}
+            {%- if item.link -%}</a>{%- endif -%}
           </h3>
 
           <p class="mb-1 text-muted">
-            {% if item.authors %}{{ item.authors }}{% endif %}
-            {% if item.venue %} • {{ item.venue }}{% endif %}
-            {% if item.year %} • {{ item.year }}{% endif %}
+            {%- if item.authors -%}{{ item.authors }}{%- endif -%}
+            {%- if item.venue -%} • {{ item.venue }}{%- endif -%}
+            {%- if item.year -%} • {{ item.year }}{%- endif -%}
           </p>
 
-          {% if item.description %}<p>{{ item.description }}</p>{% endif %}
+          {%- if item.abstract -%}<p class="mb-2">{{ item.abstract }}</p>{%- endif -%}
+          {%- if item.description and item.abstract == nil -%}<p class="mb-2">{{ item.description }}</p>{%- endif -%}
 
           <div class="small">
-            {% if item.pdf %}
-              <a class="me-3" href="{{ item.pdf | relative_url }}">PDF</a>
-            {% endif %}
-            {% if item.link %}
-              <a class="me-3" href="{{ item.link }}">View publication</a>
-            {% endif %}
-            {% if item.tags %}
+            {%- if item.doi -%}<a class="me-3" href="https://doi.org/{{ item.doi }}">DOI</a>{%- endif -%}
+            {%- if item.pdf -%}<a class="me-3" href="{{ item.pdf | relative_url }}">PDF</a>{%- endif -%}
+            {%- if item.link -%}<a class="me-3" href="{{ item.link }}">Link</a>{%- endif -%}
+            {%- if item.tags -%}
               <span class="text-muted">
-                {% for t in item.tags %}<span class="me-2">#{{ t }}</span>{% endfor %}
+                {%- for t in item.tags -%}<span class="me-2">#{{ t }}</span>{%- endfor -%}
               </span>
-            {% endif %}
+            {%- endif -%}
           </div>
         </div>
       </div>
     </article>
-  {% endfor %}
+    {%- endfor -%}
+  </section>
+  {%- endif -%}
+
+  {%- if posters and posters.size > 0 -%}
+  <section class="mb-5">
+    <h2 class="mb-3">Posters &amp; Presentations</h2>
+
+    {%- for item in posters -%}
+    <article class="work-item p-3 mb-4 border rounded">
+      <div class="row g-3 align-items-start">
+        <!-- Optional image -->
+        <div class="col-12 col-md-3">
+          {%- if item.image -%}
+          <div class="work-thumb is-43">
+            <img src="{{ item.image | relative_url }}" alt="{{ item.title | default: 'Presentation image' }}">
+          </div>
+          {%- endif -%}
+        </div>
+
+        <div class="col-12 col-md-9">
+          <h3 class="mb-1 h6">
+            {%- if item.link -%}<a href="{{ item.link }}">{%- endif -%}
+              {{ item.title }}
+            {%- if item.link -%}</a>{%- endif -%}
+          </h3>
+
+          <p class="mb-1 text-muted">
+            {%- if item.authors -%}{{ item.authors }}{%- endif -%}
+            {%- if item.event -%} • {{ item.event }}{%- elsif item.venue -%} • {{ item.venue }}{%- endif -%}
+            {%- if item.year -%} • {{ item.year }}{%- endif -%}
+            {%- if item.location -%} • {{ item.location }}{%- endif -%}
+          </p>
+
+          {%- if item.abstract -%}<p class="mb-2">{{ item.abstract }}</p>{%- endif -%}
+          {%- if item.description and item.abstract == nil -%}<p class="mb-2">{{ item.description }}</p>{%- endif -%}
+
+          <div class="small">
+            {%- if item.slides -%}<a class="me-3" href="{{ item.slides }}">Slides</a>{%- endif -%}
+            {%- if item.poster -%}<a class="me-3" href="{{ item.poster }}">Poster</a>{%- endif -%}
+            {%- if item.link -%}<a class="me-3" href="{{ item.link }}">Link</a>{%- endif -%}
+            {%- if item.tags -%}
+              <span class="text-muted">
+                {%- for t in item.tags -%}<span class="me-2">#{{ t }}</span>{%- endfor -%}
+              </span>
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+    </article>
+    {%- endfor -%}
+  </section>
+  {%- endif -%}
 
 </div>
