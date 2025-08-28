@@ -1,6 +1,81 @@
+# enter publications here
 - title: "A biologically validated mathematical model for decoding epithelial apical, basolateral, and paracellular electrical properties."
+  type: paper
   authors: Lewallen, C.F., **Chien, A.**, Maminishkis A., Hirday R., Reichert, D., Sharma, R., Wan, Q., Bharti, K., Forest, C.R.
   journal: "American Journal of Physiology: Cell Physiology, 2023"
   link: "https://pubmed.ncbi.nlm.nih.gov/37899750/"
   image: "/assets/img/7param.jpeg"
   description: "Includes my work collecting biological results on retinal pigment epithelia at the Bharti lab in the OGVFB division of the National Eye Institute on using electrochemical impedance spectroscopy (EIS) in conjunction with intracellular voltage recording to independently determine permeability changes in apical, basolateral, and paracellular pathways. Also contributed to manuscript writing."
+
+- title: "Fabrication and Characterization of I-cord Knitted SMA Actuators"
+  type: paper
+  authors: "Kim , C., Chien, A. J., Tippur, M., Sung C."
+  journal: Robosoft 2021
+  image: "/assets/img/origami.jpg"
+  description: "Includes my work from my Summer 2020 internship in the Sung Origami-inspired Robotics Lab on the shape memory alloy, nitinol, wire modeling."
+
+- title: "Chondrogenesis of cocultures of mesenchymal stem cells and articular chondrocytes in poly(l-lysine)-loaded hydrogels"
+  type: paper
+  authors: "Kim, Y. S., Chien, A. J., Guo, J. L., Smith, B. T., Watson, E., Pearce, H. A., Koons, G. L., Navara, A. M., Lam, J., Scott, D. W., Grande-Allen, K. J., & Mikos, A. G."
+  journal: "Journal of Controlled Release, 328, 710-721 (2020)."
+  link: "https://pubmed.ncbi.nlm.nih.gov/33010336/"
+  image: "/assets/img/knee.png"
+  description: "Includes my work from the Mikos Lab on inclusion of poly-(L-Lysine), chondrotin sulfate content analysis, physicochemical analysis, and degradation studies."
+
+- title: "Safety of photosynthetic Synechococcus elongatus for in vivo cyanobacteria-mammalian symbiotic therapeutics"
+  type: paper
+  authors: "Kim , C., Chien, A. J., Tippur, M., Sung C."
+  journal: "Microbial Biotechnology, 13(6), 1780-1792 (2020)."
+  link: "https://sfamjournals.onlinelibrary.wiley.com/doi/full/10.1111/1751-7915.13596"
+  image: "/assets/img/cyano.JPG"
+  description: "Performed S. elongatus propagation and culture and assisted with writing the manuscript."
+
+- title: "Use of a supramolecular polymeric hydrogel as an effective post-operative pericardial adhesion barrier"
+  type: paper
+  authors: "Stapleton, Lyndsay M., et al."
+  journal: "Nature Biomedical Engineering 3, 611-620 (2019)."
+  link: "/assets/posters/CoverNatureBiomedicalEngineering_Aug 2019.pdf"
+  image: "/assets/img/heart.png"
+  description: "Designed cover art, not a research contributor."
+
+  # enter posters here
+
+- title: "Device for Rapid Transepithelial Resistance Measurements During Stimulus Administration"
+  type: poster
+  authors: "Chien, A., Lull, E., Forest, C."
+  event: "Cellular and Tissue Engineering Symposium 2024 Poster Presentation"
+  image: "/assets/img/CTENGposter.jpg"
+
+- title: "Electrochemical Impedance Spectroscopy (EIS) and Platinum Electrodes for Nontoxic, Accurate Measurements of Transepithelial Resistance (TER)."
+  type: poster
+  authors: "Chien, A., Lull, E., Forest, C."
+  event: "BME Department Trainee Seminar, Spring 2024."
+  image: "/assets/img/EISnyquist.png"
+
+- title: "Epithelial Electrophysiology"
+  type: poster
+  authors: "Chien, A."
+  event: "Bioelectromagnetics Graduate Course Guest Lecture, Spring 2024."
+  image: "/assets/img/ECE8803.png"
+
+- title: "Epithelial Electrophysiology and Other Uses of BMED 3110 Knowledge"
+  type: poster
+  authors: "Chien, A."
+  event: "Quantitative Engineering Physiology Lab course, Spring 2023."
+  image: "/assets/img/BME3110.jpeg"
+
+- title: "Optimization of Mammalian Cell Culture Media for In Vitro Photosynthetic Co- culture with Cyanobacteria Synechococcus elongatus"
+  type: poster
+  authors: "Chien, A. J., Wang, H., Wu, M. W., Hironaka, C. E., Farry, J. M., Williams, K. M., Paulsen, M. J., Stapleton L. M., Steele A. N., Woo, Y. J."
+  event: "Biomedical Engineering Society 2020 Poster Presentation"
+  image: "/assets/img/cyanoposter.png"
+  link: "/assets/posters/ChienAthena_BMES2020_poster.pdf"
+  description: "Reports results in developing a co-culture media for cardiomyocytes and cyanobacteria from my work from my Summer 2018, 2019 internships in the Woo Lab."
+
+- title: "Evaluating In Vitro Cytocompatibility of Encapsulated Mesenchymal Stem Cells in a Chondroitin Sulfate Crosslinked Poly(N-isopropylacrylamide)-Based Hydrogel"
+  type: poster
+  authors: "Kim, Y. S., Chien, A. J., Guo, J. L., Smith, B. T., Watson, E., Pearce, H. A., Koons, G. L., Mikos A. G."
+  event: "Rice Undergraduate Research Symposium 2019"
+  image: "/assets/img/hydrogelposter.png"
+  link: "/assets/posters/Chien,AthenaRURS_S19.pdf"
+  description: "Reports results using poly-(L-Lysine) as a therapeutic factor and to increasing hydrogel stability in the Mikos Lab. Won best underclassman engineering poster."

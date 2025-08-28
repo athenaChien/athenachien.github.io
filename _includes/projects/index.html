@@ -29,7 +29,7 @@
   {% endfor %}
 
   <!-- Local Projects: now sorted by weight and with extra fields -->
- {% assign local_projects = include.collection | default: site.projects | sort: "weight" %}
+ {% assign local_projects = include.collection | default: site.projects %}
 
   {% for project in local_projects %}
 
