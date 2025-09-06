@@ -1,27 +1,46 @@
-<div class="card text-themed project h-100">
-
+<div class="card text-themed project">
   {% if project_img %}
-    <img id="{{ project_id }}-img"
-         class="card-img-top"
-         src="{{ project_img | relative_url }}"
-         alt="{{ project_name }}">
+    <img
+      id="{{ project_id }}-img"
+      class="card-img-top"
+      src="{{ project_img | relative_url }}"
+      alt="{{ project_name }}">
   {% endif %}
 
   <div class="card-body">
-    <!-- Title -->
+    {%- comment -%}
+      Build href:
+      - Remote: use project.link if set, else project_url (GitHub repo)
+      - Local: only use project.link (no implicit internal link)
+    {%- endcomment -%}
+    {%- assign href = nil -%}
+    {%- if project_type == "remote" -%}
+      {%- assign href = project.link | default: project_url -%}
+    {%- elsif project.link -%}
+      {%- assign href = project.link -%}
+    {%- endif -%}
+
+    <!-- Title: linked only when href exists -->
     <h5 id="{{ project_id }}-name" class="card-title">
       {% if project_type == "remote" %}
-        <i class="fab fa-github" data-toggle="tooltip" data-placement="bottom"
-           data-delay="250" title="GitHub Repository"></i>&nbsp;|&nbsp;
+        <i class="fab fa-github" aria-hidden="true"></i>&nbsp;
       {% endif %}
-      {{ project_name }}
+      {% if href %}
+        <a href="{{ href }}"{% if external or site.open_new_tab %} target="_blank" rel="noopener"{% endif %}>
+          {{ project_name }}
+        </a>
+      {% else %}
+        {{ project_name }}
+      {% endif %}
     </h5>
 
-    {% if project_role or project_pi or project_year %}
+    <!-- Meta: role • PI • year (no leading dot) + team -->
+    {% if project_role or project_pi or project_year or project_team %}
       <p class="text-muted small mb-2">
         {% if project_role %}{{ project_role }}{% endif %}
         {% if project_pi %}{% if project_role %} · {% endif %}{{ project_pi }}{% endif %}
-        {% if project_year %} · {{ project_year }}{% endif %}
+        {% if project_year %}{% if project_role or project_pi %} · {% endif %}{{ project_year }}{% endif %}
+        {% if project_team %}<br><span class="project-team">{{ project_team }}</span>{% endif %}
       </p>
     {% endif %}
 
@@ -50,16 +69,6 @@
           {% endfor %}
         {% endif %}
       </div>
-    {% endif %}
-
-    <!-- Footer link (only if front-matter `link:` exists) -->
-    {% if project.link %}
-      <p class="mt-3 mb-0">
-        <a href="{{ project.link }}"
-           {% if site.open_new_tab %}target="_blank" rel="noopener"{% endif %}>
-          Learn more →
-        </a>
-      </p>
     {% endif %}
   </div>
 </div>

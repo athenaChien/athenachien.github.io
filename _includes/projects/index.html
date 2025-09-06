@@ -1,60 +1,37 @@
-
-
 <div class="card-columns m-3 mt-5">
+  {% assign colname = include.collection | default: "projects" %}
+  {% assign all     = site[colname] %}
 
-  <!-- Remote Projects (unchanged) -->
-  {% for remote_project in page.remote_projects %}
-    {%- for repo in site.github.public_repositories -%}
-      {%- if remote_project == repo.name -%}
-        {%- assign project = repo -%}
-        {%- assign words = project.name | split: '-' -%}
-        {%- capture titlecase -%}
-          {%- for word in words -%}
-            {{ word | capitalize | append: ' ' }}
-          {%- endfor -%}
-        {%- endcapture -%}
+  {% comment %}
+    Derive a sort key from `year`:
+    - take text before a dash (handles "2023 - current")
+    - then take the last token (handles "Fall 2024")
+  {% endcomment %}
+  {% assign groups = all | group_by_exp: "it", "it.year | default: '' | split: '-' | first | strip | split: ' ' | last" %}
+  {% assign groups = groups | sort: "name" | reverse %}
 
-        {%- assign project_type  = "remote" -%}
-        {%- assign project_id    = project.name -%}
-        {%- assign project_img   = false -%}
-        {%- assign project_name  = titlecase | strip -%}
-        {%- assign project_desc  = project.description -%}
-        {%- assign project_url   = project.html_url -%}
-        {%- assign project_tools = project.topics -%}
-        {%- assign external      = true -%}
+  {% for g in groups %}
+    {% for item in g.items %}
+      {% assign project_type  = "local" %}
+      {% assign project_id    = item.name  | default: item.title | default: item.basename | slugify %}
+      {% assign project_img   = item.image %}
+      {% assign project_name  = item.name  | default: item.title | default: item.basename %}
+      {% assign project_desc  = item.description %}
+      {% assign project_role  = item.role %}
+      {% assign project_year  = item.year %}  
+      {% assign project_team  = item.team %}
+      {% assign project_pi    = item.pi %}
+      {% assign project_tools = item.tools %}
 
-        {% include projects/project-card.html %}
-      {%- endif -%}
-    {%- endfor -%}
+      {% if item.link %}
+        {% assign project_url = item.link %}{% assign external = true %}
+      {% elsif item.external_url %}
+        {% assign project_url = item.external_url %}{% assign external = true %}
+      {% else %}
+        {% assign project_url = nil %}{% assign external = false %}
+      {% endif %}
+
+      {% include projects/project-card.html %}
+    {% endfor %}
   {% endfor %}
-
-  <!-- Local Projects: now sorted by weight and with extra fields -->
- {% assign local_projects = include.collection | default: site.projects %}
-
-  {% for project in local_projects %}
-
-    {%- assign project_type  = "local" -%}
-    {%- assign project_id    = project.name | slugify -%}
-    {%- assign project_img   = project.image -%}
-    {%- assign project_name  = project.name -%}
-    {%- assign project_desc  = project.description -%}
-    {%- assign project_tools = project.tools -%}
-
-    {%- assign project_pi    = project.pi -%}
-    {%- assign project_role  = project.role -%}
-    {%- assign project_year  = project.year -%}
-    {%- assign project_research_skills  = project.research_skills -%}
-    {%- assign project_technical_skills = project.technical_skills -%}
-
-    {%- if project.external_url -%}
-      {%- assign project_url = project.external_url -%}
-      {%- assign external    = true -%}
-    {%- else -%}
-      {%- assign project_url = project.url | relative_url -%}
-      {%- assign external    = false -%}
-    {%- endif -%}
-
-    {% include projects/project-card.html %}
-  {% endfor %}
-
 </div>
