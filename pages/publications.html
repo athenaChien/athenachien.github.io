@@ -46,7 +46,6 @@ weight: 2
 
   {%- if papers and papers.size > 0 -%}
   <section class="mb-5">
-    <h2 class="mb-3">Publications</h2>
 
     {%- for item in papers -%}
     <article class="work-item p-3 mb-4 border rounded">
@@ -68,7 +67,7 @@ weight: 2
           </h3>
 
           <p class="mb-1 text-muted">
-            {%- if item.authors -%}{{ item.authors }}{%- endif -%}
+            {%- if item.authors -%}{{ item.authors | markdownify | replace: '<p>', '' | replace: '</p>', '' }}{%- endif -%}
             {%- if item.venue -%} • {{ item.venue }}{%- endif -%}
             {%- if item.year -%} • {{ item.year }}{%- endif -%}
           </p>
@@ -117,7 +116,7 @@ weight: 2
           </h3>
 
           <p class="mb-1 text-muted">
-            {%- if item.authors -%}{{ item.authors }}{%- endif -%}
+            {%- if item.authors -%}{{ item.authors | markdownify | replace: '<p>', '' | replace: '</p>', '' }}{%- endif -%}
             {%- if item.event -%} • {{ item.event }}{%- elsif item.venue -%} • {{ item.venue }}{%- endif -%}
             {%- if item.year -%} • {{ item.year }}{%- endif -%}
             {%- if item.location -%} • {{ item.location }}{%- endif -%}

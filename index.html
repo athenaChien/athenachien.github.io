@@ -1,0 +1,71 @@
+---
+layout: default
+permalink: /
+---
+
+<!-- Hero driven by _config.yml -->
+<section class="container my-5 home-hero">
+  <div class="row align-items-center">
+    <div class="col-12 col-lg-7">
+      <p class="lead mb-0">{{ site.description }}</p><br><br>
+      <p><strong>Looking for Summer 2025 internship in medtech to build on my sensing and signal processing skills.</strong></p>
+    </div>
+
+    <div class="col-12 col-lg-5 mt-4 mt-lg-0 text-center">
+      {% if site.author.image %}
+        <div class="avatar-circle">
+          <img
+            src="{{ site.author.image | relative_url }}"
+            alt="{{ site.author.name }} headshot"
+          >
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+
+<!-- Former About content, now living on the homepage -->
+<section class="container my-5">
+    <hr class="my-4">
+  <h3 class="mb-3">About Me</h3>
+  <p>
+    Hi I am <strong>{{ site.author.name }}</strong> 👋<br>
+    Strong research professional with a demonstrated interest in signal processing and medical devices.
+    Skilled in device design, Python, Matlab, and cell culture techniques.
+    Pursuing PhD in Biomedical Engineering from Georgia Tech &amp; Emory University.
+  </p>
+
+
+  <div class="row">
+    <div class="col-12 col-md-6">
+      <h3 class="h5 mt-3">Academic Background</h3>
+      <ul class="mb-3">
+        <li>Precision Biosystems Laboratory, Dr. Craig Forest</li>
+        <li>M.S. Electrical Engineering, Georgia Institute of Technology (expected Spring 2026)</li>
+      </ul>
+
+    </div>
+
+    <div class="col-12 col-md-6">
+      <h3 class="h5 mt-3">Research Focus</h3>
+      <ul class="mb-3">
+        <li><strong>Current Interests:</strong> medical devices, sensing, electrophysiology</li>
+        <li><strong>Experience:</strong> cellular-level therapy, chemical-level biomaterials, and robotics</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Timeline (same partial the About page used) -->
+<section class="container my-5">
+      <hr class="my-4">
+  <h2 class="mb-3">Timeline</h2>
+  <div class="row">
+    {% include about/timeline.html %}
+  </div>
+</section>
+
+
+
+</div>
