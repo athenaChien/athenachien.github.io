@@ -158,7 +158,6 @@ strong a, b a { color: inherit; }
 
 /* --- Home link underline color --- */
 :root { --home-underline: #709255; }              /* light-mode color */
-[data-theme="dark"] { --home-underline: #8ab4f8; }/* dark-mode color */
 
 a.navbar-brand[href="{{ '/' | relative_url }}"],
 .navbar-nav .nav-link[href="{{ '/' | relative_url }}"] {

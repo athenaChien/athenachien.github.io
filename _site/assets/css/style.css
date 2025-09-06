@@ -566,9 +566,6 @@ strong a, b a { color: inherit; }
 :root { --home-underline: #709255; }
 
 /* light-mode color */
-[data-theme="dark"] { --home-underline: #8ab4f8; }
-
-/* dark-mode color */
 a.navbar-brand[href="/"], .navbar-nav .nav-link[href="/"] { text-decoration-line: underline !important; text-decoration-color: var(--home-underline) !important; text-decoration-thickness: .12em; text-underline-offset: .2em; /* optional: ensure text color stays as-is */ }
 
 a.navbar-brand[href="/"]:hover, .navbar-nav .nav-link[href="/"]:hover { text-decoration-color: var(--home-underline) !important; /* keep same color on hover */ }
