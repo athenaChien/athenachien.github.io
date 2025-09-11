@@ -1,80 +1,34 @@
-research:
-  - org: "Current Doctoral Research at Precision Biosystems Laboratory"
-    institution: "Georgia Institute of Technology"
-    role: "PhD Candidate"
-    pi: "Dr. Craig Forest"
-    location: "Atlanta, GA"
-    dates: "2021–Present"
-    image: "/assets/img/EIS.png"
-    summary: "Developing a high-temporal resolution system for measurement of transcellular and paracellular transport using electrochemical impedance spectroscopy (EIS) to study cellular models of epithelial disease. Working in collaboration with Dr. Nael McCarty (Emory University)."
-    technical_skills:
-      - Altium Software for Printed Circuit Board (PCB) Design
-      - Model Fitting (Matlab & Python)
-      - CAD Modeling (solidworks)
-      - Tissue Immunostaining
-      - SEM Imaging
-    research_skills:
-      - Device design & characterization
-      - Proposal writing
-      - Understanding of the epithelial electrophysiology field, challenges in ion transport research
 
-  - org: "(Undergraduate) Sung Robotics Lab"
-    institution: "University of Pennsylvania"
-    role: "Summer research intern"
-    pi: "Dr. Cynthia Sung"
-    dates: "2020"
-    image: "/assets/img/origami.jpg"
-    summary: "I worked on a foldable sheet that senses, communicates, and changes the position of its folds to enhance a virtual reality experience via a tactile interface. This is also a development in the field of programmable matter, where many small and simple units are leveraged to do larger and more complex tasks (think ants or the microbots from Big Hero 6). The problem with having so many units is the limitations of communication. For example, if we have one hundred units, each unit must communicate their position and adjacent neighbors to the “master unit.” Only then can the master send a message back to each unit to change the overall structure. Instead, the communication system I developed uses a decentralized method: each unit (controlling four converging folds) only communicates and changes position based on its four neighboring units, reducing the communications for a single unit shape change to be finite and independent of the number of total units. In addition, to fit all the circuitry into a four-by-four cm shape, I had to design a multi-layer flexible PCB, iterate through selecting smaller components, and re-draw traces four to five times. I successfully completed that project, and I subsequently worked on a model for using a shrinking wire (made of nitinol) for actuation: changing folds from being popped up to popped down. I was able to model the nonlinear nitinol behavior and fit experimental data to determine material parameters such as transition temperatures and Young’s moduli. This is the start of a predictive model to determine what input current is required to generate the desired contraction."
-    technical_skills:
-      - EAGLE Electronic Design Automation (EDA) Software for Printed Circuit Board (PCB) design
-      -  Materials Design
-      - Soldering
-      - Electronic Circuit Design
-      - Understanding Communication Buses
-    research_skills:
-      - Materials Modeling (Matlab)
-      - Understanding of the robotics field, challenges in robotics research
-  - org: "(Undergraduate) Mikos Biomaterial Lab"
-    institution: "Rice University"
-    role: "Research assistant"
-    pi: "Dr. Antonios Mikos, Graduate Student Mentor: Dr. Yuseon Kim"
-    dates: "Sept. 2018 - Dec. 2019"
-    image: "/assets/img/knee.png"
-    summary: "Hydrogels are an advantageous local delivery system because they can be chemically modified for tunable delivery and degradation timing. In the context of osteochondral tissue repair, there is little to no regenerative capabilities, but the local delivery of mesenchymal stem cells (MSCs) can generate new cartilage tissue via chondrogenesis. The hydrogel I developed uses poly(L-lysine) (PLL) and chondroitin sulfate to support the chondrogenesis of encapsulated MSCs. First, I found altering the concentration of PLL in a chondroitin sulfate and Poly(N-isopropylacrylamide)-based hydrogel did not affect its physical and chemical stability. Then, I discovered that the addition of poly(amidoamine) can further improve the stability: generating a semi-interpenetrating network hydrogel with increased PLL retention and reduced swelling, minimizing the risk that the hydrogel would expand and pop out of the defect site. This design was then used in further research with encapsulated chondrocytes and MSCs."
-    technical_skills: 
-      - Hydrogel Synthesis (Polymerization)
-      - Rheology Testing
-      - Assays for bioactive markers
-    research_skills:
-      - How to alter a complex multi-component design
-      - The value in unsuccessful results and how to proceed from them
-      - A window into the vast characterization to determine biocompatibility and chemical interactions within the body
+- org: "Current Doctoral Research at Precision Biosystems Laboratory"
+  institution: "Georgia Institute of Technology"
+  role: "PhD Candidate"
+  pi: "Dr. Craig Forest"
+  location: "Atlanta, GA"
+  dates: "2021–Present"
+  image: "/assets/img/EIS.png"
+  summary: "Developing a high-temporal resolution system for measurement of transcellular and paracellular transport using electrochemical impedance spectroscopy (EIS) to study cellular models of epithelial disease. Working in collaboration with Dr. Nael McCarty (Emory University)."
 
-  - org: "(Undergraduate) Woo Cardiovascular Therapeutics Lab"
-    institution: "Stanford University"
-    pi: "Dr. Joseph Woo, Postdoc Mentor: Dr. Hanjay Wang"
-    role: "Summer research intern"
-    dates: "2018, 2019"
-    image: "/assets/img/surgery1.jpeg"
-    summary: "I developed a new media that extends the lifetime of cyanobacteria in vitro. My project built on prior research success injecting cyanobacteria into a hypoxic rodent heart which showed improvements in tissue oxygenation and cardiac function. To study this relationship ex vivo, the cyanobacteria and cardiomyocytes must be grown in the same media. Unfortunately, the standard cardiomyocyte media is toxic to the cyanobacteria, causing bacterial death within a day. I created a modified mammalian cell media that is nontoxic to cyanobacteria and of course, remains compatible with the host. This increased the co-culture time to over a week, allowing future research to determine the long-term effects cardiomyocytes have on cyanobacteria oxygen production and whether this symbiotic relationship can persist for extended periods of time. This brings us one step closer to developing a therapy for slowing tissue damage during cardiac arrest and designing an oxygenated transportation fluid for explanted hearts."
-    technical_skills: 
-      - Cell culture
-      - Bacteria culture
-      - Fluorescent Live/Dead Staining Assays
-    research_skills:
-      - Experimental design
-      - Literature searches
-      - Troubleshooting
-      - Practice in data presentation, background explanation
+- org: "(Undergraduate) Sung Robotics Lab"
+  institution: "University of Pennsylvania"
+  role: "Summer research intern"
+  pi: "Dr. Cynthia Sung"
+  dates: "2020"
+  image: "/assets/img/origami.jpg"
+  summary: "I worked on a foldable sheet that senses, communicates, and changes the position of its folds to enhance a virtual reality experience via a tactile interface. This is also a development in the field of programmable matter, where many small and simple units are leveraged to do larger and more complex tasks (think ants or the microbots from Big Hero 6). The problem with having so many units is the limitations of communication. For example, if we have one hundred units, each unit must communicate their position and adjacent neighbors to the “master unit.” Only then can the master send a message back to each unit to change the overall structure. Instead, the communication system I developed uses a decentralized method: each unit (controlling four converging folds) only communicates and changes position based on its four neighboring units, reducing the communications for a single unit shape change to be finite and independent of the number of total units. In addition, to fit all the circuitry into a four-by-four cm shape, I had to design a multi-layer flexible PCB, iterate through selecting smaller components, and re-draw traces four to five times. I successfully completed that project, and I subsequently worked on a model for using a shrinking wire (made of nitinol) for actuation: changing folds from being popped up to popped down. I was able to model the nonlinear nitinol behavior and fit experimental data to determine material parameters such as transition temperatures and Young’s moduli. This is the start of a predictive model to determine what input current is required to generate the desired contraction."
 
+- org: "(Undergraduate) Mikos Biomaterial Lab"
+  institution: "Rice University"
+  role: "Research assistant"
+  pi: "Dr. Antonios Mikos, Graduate Student Mentor: Dr. Yuseon Kim"
+  dates: "Sept. 2018 - Dec. 2019"
+  image: "/assets/img/knee.png"
+  summary: "Hydrogels are an advantageous local delivery system because they can be chemically modified for tunable delivery and degradation timing. In the context of osteochondral tissue repair, there is little to no regenerative capabilities, but the local delivery of mesenchymal stem cells (MSCs) can generate new cartilage tissue via chondrogenesis. The hydrogel I developed uses poly(L-lysine) (PLL) and chondroitin sulfate to support the chondrogenesis of encapsulated MSCs. First, I found altering the concentration of PLL in a chondroitin sulfate and Poly(N-isopropylacrylamide)-based hydrogel did not affect its physical and chemical stability. Then, I discovered that the addition of poly(amidoamine) can further improve the stability: generating a semi-interpenetrating network hydrogel with increased PLL retention and reduced swelling, minimizing the risk that the hydrogel would expand and pop out of the defect site. This design was then used in further research with encapsulated chondrocytes and MSCs."
 
-industry:
-  - org: "example"
-    role: "example"
-    location: "example"
-    dates: "2022–2024"
-    image: "/assets/img/EIS.png"
-    bullets:
-      - example
-    technical_skills:
-      - example
+- org: "(Undergraduate) Woo Cardiovascular Therapeutics Lab"
+  institution: "Stanford University"
+  pi: "Dr. Joseph Woo, Postdoc Mentor: Dr. Hanjay Wang"
+  role: "Summer research intern"
+  dates: "2018, 2019"
+  image: "/assets/img/surgery1.jpeg"
+  summary: "I developed a new media that extends the lifetime of cyanobacteria in vitro. My project built on prior research success injecting cyanobacteria into a hypoxic rodent heart which showed improvements in tissue oxygenation and cardiac function. To study this relationship ex vivo, the cyanobacteria and cardiomyocytes must be grown in the same media. Unfortunately, the standard cardiomyocyte media is toxic to the cyanobacteria, causing bacterial death within a day. I created a modified mammalian cell media that is nontoxic to cyanobacteria and of course, remains compatible with the host. This increased the co-culture time to over a week, allowing future research to determine the long-term effects cardiomyocytes have on cyanobacteria oxygen production and whether this symbiotic relationship can persist for extended periods of time. This brings us one step closer to developing a therapy for slowing tissue damage during cardiac arrest and designing an oxygenated transportation fluid for explanted hearts."
+

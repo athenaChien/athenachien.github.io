@@ -1,37 +1,89 @@
-<div class="card-columns m-3 mt-5">
-  {% assign colname = include.collection | default: "projects" %}
-  {% assign all     = site[colname] %}
+<div class="row g-4">
+  {%- assign colname = include.collection | default: "projects" -%}
 
-  {% comment %}
-    Derive a sort key from `year`:
-    - take text before a dash (handles "2023 - current")
-    - then take the last token (handles "Fall 2024")
-  {% endcomment %}
-  {% assign groups = all | group_by_exp: "it", "it.year | default: '' | split: '-' | first | strip | split: ' ' | last" %}
-  {% assign groups = groups | sort: "name" | reverse %}
+  {%- comment -%}
+    We only consider items that explicitly set a numeric `bucket` in front-matter.
+    Example:
+      ---
+      title: Aeropuff
+      bucket: 0   # 00
+      ---
+    This file guarantees order by looping over numeric ranges, so 0 → 1 → … → 20, etc.
+  {%- endcomment -%}
+  {%- assign items = site[colname] | where_exp: "i", "i.bucket != nil" -%}
 
-  {% for g in groups %}
-    {% for item in g.items %}
-      {% assign project_type  = "local" %}
-      {% assign project_id    = item.name  | default: item.title | default: item.basename | slugify %}
-      {% assign project_img   = item.image %}
-      {% assign project_name  = item.name  | default: item.title | default: item.basename %}
-      {% assign project_desc  = item.description %}
-      {% assign project_role  = item.role %}
-      {% assign project_year  = item.year %}  
-      {% assign project_team  = item.team %}
-      {% assign project_pi    = item.pi %}
-      {% assign project_tools = item.tools %}
-
-      {% if item.link %}
-        {% assign project_url = item.link %}{% assign external = true %}
-      {% elsif item.external_url %}
-        {% assign project_url = item.external_url %}{% assign external = true %}
-      {% else %}
-        {% assign project_url = nil %}{% assign external = false %}
-      {% endif %}
-
-      {% include projects/project-card.html %}
+  <!-- Column 1: 0–20 -->
+  <div class="col-12 col-md-6 col-lg-4">
+    {% for n in (0..20) %}
+      {% for item in items %}
+        {% if item.bucket == n %}
+          {%- assign project_type  = "local" -%}
+          {%- assign project_id    = item.name  | default: item.title | default: item.basename | slugify -%}
+          {%- assign project_img   = item.image -%}
+          {%- assign project_name  = item.name  | default: item.title | default: item.basename -%}
+          {%- assign project_desc  = item.description -%}
+          {%- assign project_role  = item.role -%}
+          {%- assign project_year  = item.year -%}
+          {%- assign project_team  = item.team -%}
+          {%- assign project_pi    = item.pi -%}
+          {%- assign project_tools = item.tools -%}
+          {%- if item.link -%}{%- assign project_url = item.link -%}{%- assign external = true -%}
+          {%- elsif item.external_url -%}{%- assign project_url = item.external_url -%}{%- assign external = true -%}
+          {%- else -%}{%- assign project_url = nil -%}{%- assign external = false -%}
+          {%- endif -%}
+          <div class="mb-4">{% include projects/project-card.html %}</div>
+        {% endif %}
+      {% endfor %}
     {% endfor %}
-  {% endfor %}
+  </div>
+
+  <!-- Column 2: 21–40 -->
+  <div class="col-12 col-md-6 col-lg-4">
+    {% for n in (21..40) %}
+      {% for item in items %}
+        {% if item.bucket == n %}
+          {%- assign project_type  = "local" -%}
+          {%- assign project_id    = item.name  | default: item.title | default: item.basename | slugify -%}
+          {%- assign project_img   = item.image -%}
+          {%- assign project_name  = item.name  | default: item.title | default: item.basename -%}
+          {%- assign project_desc  = item.description -%}
+          {%- assign project_role  = item.role -%}
+          {%- assign project_year  = item.year -%}
+          {%- assign project_team  = item.team -%}
+          {%- assign project_pi    = item.pi -%}
+          {%- assign project_tools = item.tools -%}
+          {%- if item.link -%}{%- assign project_url = item.link -%}{%- assign external = true -%}
+          {%- elsif item.external_url -%}{%- assign project_url = item.external_url -%}{%- assign external = true -%}
+          {%- else -%}{%- assign project_url = nil -%}{%- assign external = false -%}
+          {%- endif -%}
+          <div class="mb-4">{% include projects/project-card.html %}</div>
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+  </div>
+
+  <!-- Column 3: 41–60 -->
+  <div class="col-12 col-md-6 col-lg-4">
+    {% for n in (41..60) %}
+      {% for item in items %}
+        {% if item.bucket == n %}
+          {%- assign project_type  = "local" -%}
+          {%- assign project_id    = item.name  | default: item.title | default: item.basename | slugify -%}
+          {%- assign project_img   = item.image -%}
+          {%- assign project_name  = item.name  | default: item.title | default: item.basename -%}
+          {%- assign project_desc  = item.description -%}
+          {%- assign project_role  = item.role -%}
+          {%- assign project_year  = item.year -%}
+          {%- assign project_team  = item.team -%}
+          {%- assign project_pi    = item.pi -%}
+          {%- assign project_tools = item.tools -%}
+          {%- if item.link -%}{%- assign project_url = item.link -%}{%- assign external = true -%}
+          {%- elsif item.external_url -%}{%- assign project_url = item.external_url -%}{%- assign external = true -%}
+          {%- else -%}{%- assign project_url = nil -%}{%- assign external = false -%}
+          {%- endif -%}
+          <div class="mb-4">{% include projects/project-card.html %}</div>
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+  </div>
 </div>

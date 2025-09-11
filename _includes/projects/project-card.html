@@ -9,16 +9,11 @@
 
   <div class="card-body">
     {%- comment -%}
-      Build href:
-      - Remote: use project.link if set, else project_url (GitHub repo)
-      - Local: only use project.link (no implicit internal link)
+      Build a single href from whatever was provided upstream:
+      - project_url (preferred; set by the list include from link/external_url)
+      - fallback to project.link if someone passes it directly
     {%- endcomment -%}
-    {%- assign href = nil -%}
-    {%- if project_type == "remote" -%}
-      {%- assign href = project.link | default: project_url -%}
-    {%- elsif project.link -%}
-      {%- assign href = project.link -%}
-    {%- endif -%}
+    {%- assign href = project_url | default: project.link -%}
 
     <!-- Title: linked only when href exists -->
     <h5 id="{{ project_id }}-name" class="card-title">
