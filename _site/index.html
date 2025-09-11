@@ -68,6 +68,8 @@
 
       <a class="nav-item nav-link " href="/leadership/">Leadership</a>
 
+      <a class="nav-item nav-link " href="/resume/">Resume</a>
+
       
 
       <span id="theme-toggler" class="nav-item nav-link" role="button" onclick="toggleTheme()"></span>
@@ -99,7 +101,7 @@
 
 <!-- Former About content, now living on the homepage -->
 <section class="container my-5">
-    <hr class="my-4">
+  <hr class="my-4">
   <h3 class="mb-3">About Me</h3>
   <p>
     Hi I am <strong>Athena Chien</strong> 👋<br>
@@ -108,7 +110,6 @@
     Pursuing PhD in Biomedical Engineering from Georgia Tech &amp; Emory University.
   </p>
 
-
   <div class="row">
     <div class="col-12 col-md-6">
       <h3 class="h5 mt-3">Academic Background</h3>
@@ -116,7 +117,6 @@
         <li>Precision Biosystems Laboratory, Dr. Craig Forest</li>
         <li>M.S. Electrical Engineering, Georgia Institute of Technology (expected Spring 2026)</li>
       </ul>
-
     </div>
 
     <div class="col-12 col-md-6">
@@ -127,11 +127,34 @@
       </ul>
     </div>
   </div>
+
+  <!-- Skills (exact wording preserved) -->
+  <h3 class="h5 mt-3">Skills</h3>
+  <dl class="row mb-0">
+    <dt class="col-12 col-md-3">Engineering</dt>
+    <dd class="col-12 col-md-9">
+      Biomedical Sensing/Electrophysiology (EMG, ECG, PPG), Medical Imaging Systems (MRI, ultrasound, CT),
+      Digital Signal Processing, Machine Learning (Spring 2025), circuit modeling, CNC Milling, 3D printing,
+      MEMS design, CAD modeling, PCB design, Tensile Testing, Rheology Testing
+    </dd>
+
+    <dt class="col-12 col-md-3 mt-3 mt-md-2">Software</dt>
+    <dd class="col-12 col-md-9 mt-1 mt-md-2">
+      Python, Matlab, Labview, Arduino, NOVA (for impedance measuring), EAGLE, AutoCAD, LTSpice, Adobe
+      Illustrator, HTML.
+    </dd>
+
+    <dt class="col-12 col-md-3 mt-3 mt-md-2">Laboratory</dt>
+    <dd class="col-12 col-md-9 mt-1 mt-md-2">
+      Mammalian Cell Culture, Fluorescent Live/Dead Staining Assays, Immunostaining, ELISAs.
+    </dd>
+  </dl>
 </section>
+
 
 <!-- Timeline (same partial the About page used) -->
 <section class="container my-5">
-      <hr class="my-4">
+      <!-- <hr class="my-4"> -->
   <h2 class="mb-3">Timeline</h2>
   <div class="row">
     <div class="col mt-4">
@@ -167,6 +190,14 @@
   <!-- Custom footer, or leave blank -->
   <p>&copy; Athena Chien 2025</p>
 </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var resumeHref = "/resume/";
+  var a = document.querySelector('.navbar-nav a[href="' + resumeHref + '"]');
+  if (a) { a.setAttribute('target','_blank'); a.setAttribute('rel','noopener'); }
+});
+</script>
 
 
   

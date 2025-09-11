@@ -2,3 +2,11 @@
   <!-- Custom footer, or leave blank -->
   <p>&copy; {{ site.author.name }} {{ "now" | date: "%Y" }}</p>
 </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var resumeHref = "{{ '/resume/' | relative_url }}";
+  var a = document.querySelector('.navbar-nav a[href="' + resumeHref + '"]');
+  if (a) { a.setAttribute('target','_blank'); a.setAttribute('rel','noopener'); }
+});
+</script>
