@@ -6,3 +6,6 @@
 
 * if you want to tweak the ordering later on, if you go into an md file like aeropuff.md you’ll see “bucket: 00” and that’s what you change with the columns we talked about (0-20, 21-40, 41-60)
 * to dos: make sure linkedin linked, add updated resume
+
+For viewing the page locally: 
+* https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll
